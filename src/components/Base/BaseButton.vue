@@ -31,8 +31,9 @@ export default {
   font-weight: bold;
 
   &--outline {
-    background-color: transparent;
     color: $primary;
+    background-color: #ffffff75;
+    backdrop-filter: blur(6px);
   }
 }
 </style>
