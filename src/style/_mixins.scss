@@ -1,0 +1,11 @@
+@mixin mq($device-type: 'mobile') {
+  @if ($device-type == 'mobile') {
+    @media all and (max-width: 1024px) {
+      @content;
+    }
+  } @else if ($device-type == 'tablet') {
+    @media all and (max-width: 1024px) and (min-width: 668px) {
+      @content;
+    }
+  }
+}
