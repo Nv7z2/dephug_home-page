@@ -3,7 +3,7 @@
     class="home-navigation"
     :class="{ 'home-navigation--active': isMenuActive }"
   >
-    <div class="home-navigation__logo" @click="isMenuActive = true">
+    <div class="home-navigation__logo">
       <h2>Dephug</h2>
     </div>
 
@@ -87,10 +87,21 @@ export default {
   width: 100%;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem 1.5rem;
+  background-color: #ffffff75;
+  backdrop-filter: blur(6px);
 
   @include mq {
     padding: 0;
+    background-color: transparent;
+
+    &--active {
+      height: 100vh;
+    }
   }
 
   &__logo {
@@ -103,8 +114,14 @@ export default {
       width: 100%;
       padding: 0.5rem 0;
       text-align: center;
-      background-color: #ffffff40;
-      backdrop-filter: blur(8px);
+      background-color: #ffffff50;
+      backdrop-filter: blur(6px);
+    }
+  }
+
+  &--active &__logo {
+    @include mq {
+      background-color: transparent;
     }
   }
 
@@ -180,7 +197,7 @@ export default {
       top: 0;
       left: 0;
       width: 100%;
-      height: 100%;
+      height: 100vh;
       background-color: #00000015;
       backdrop-filter: blur(4px);
     }
