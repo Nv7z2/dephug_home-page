@@ -6,6 +6,7 @@
     }"
     class="base-button"
     :disabled="disabled"
+    type="button"
   >
     <slot></slot>
   </button>

@@ -42,11 +42,19 @@ export default {
 .section {
   margin-top: 8rem;
 
+  @include mq {
+    margin-top: 6rem;
+  }
+
   &__heading {
     font-weight: lighter;
     font-size: 2.25rem;
     margin: 0 0 4.5rem 0;
     color: $text-dark;
+
+    @include mq {
+      margin: 0 0 2rem 0;
+    }
   }
 }
 </style>

@@ -42,5 +42,17 @@ export default {
   },
   about_us: {
     heading: 'About us',
-  }
+  },
+  contact: {
+    heading: 'Contact',
+    lets_make_a_deal: "Let's make a deal!",
+    or_collaborate: 'or collaborate',
+    form: {
+      name: 'Name',
+      email: 'E-mail',
+      subject: 'Subject',
+      message: 'Message',
+      button_label: 'Send',
+    }
+  },
 };
