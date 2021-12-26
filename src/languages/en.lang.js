@@ -35,5 +35,6 @@ export default {
       'Laudem et quasi architecto beatae vitae dicta sunt, explicabo nemo enim maxime placeat, facere possimus, omnis dolor sit extremum et ultimum bonorum.',
     step_description4:
       'Laudem et quasi architecto beatae vitae dicta sunt, explicabo nemo enim maxime placeat, facere possimus, omnis dolor sit extremum et ultimum bonorum.',
+    create_your_project: 'Create your project',
   },
 };

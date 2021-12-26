@@ -1,5 +1,5 @@
 <template>
-  <section class="how-we-work">
+  <section class="how-we-work" id="how-we-work">
     <h2 class="how-we-work__heading">
       {{ $t('how_we_work.heading') }}
     </h2>
@@ -77,12 +77,19 @@
         <span>{{ $t('how_we_work.step_description4') }}</span>
       </div>
     </div>
+
+    <div class="how-we-work__button-wrapper">
+      <base-button>
+        {{ $t('how_we_work.create_your_project') }}
+      </base-button>
+    </div>
   </section>
 </template>
 
 <script>
 export default {
   mounted() {
+    const sectionNode = document.querySelector('.how-we-work');
     const dividerDotWrapper = document.querySelector(
       '.how-we-work__divider-dot-wrapper'
     );
@@ -96,6 +103,12 @@ export default {
     calculateDividerLineWidth();
 
     window.addEventListener('resize', calculateDividerLineWidth);
+
+    window.addEventListener('scroll', () => {
+      let distanceFromTop = sectionNode.getBoundingClientRect().top;
+      let opacityBasedOnScroll = -(distanceFromTop - window.innerHeight) / 750;
+      sectionNode.style.opacity = opacityBasedOnScroll > 1 ? 1 : opacityBasedOnScroll;
+    });
   },
 };
 </script>
@@ -103,6 +116,7 @@ export default {
 <style lang="scss" scoped>
 .how-we-work {
   margin-top: 8rem;
+  position: relative;
 
   .mobile-only {
     display: none;
@@ -216,6 +230,22 @@ export default {
   &__step-description span {
     font-size: 1rem;
     text-align: left;
+  }
+
+  &__button-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 4rem;
+
+    button {
+      width: 20rem;
+      max-width: 320px;
+
+      @include mq {
+        width: 85%;
+        max-width: unset;
+      }
+    }
   }
 }
 </style>
