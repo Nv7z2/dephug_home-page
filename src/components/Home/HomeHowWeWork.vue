@@ -107,6 +107,7 @@ export default {
     window.addEventListener('scroll', () => {
       let distanceFromTop = sectionNode.getBoundingClientRect().top;
       let opacityBasedOnScroll = -(distanceFromTop - window.innerHeight) / 750;
+
       sectionNode.style.opacity = opacityBasedOnScroll > 1 ? 1 : opacityBasedOnScroll;
     });
   },
