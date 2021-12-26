@@ -4,13 +4,13 @@
       {{ $t('hero.description') }}
     </div>
     <div class="hero-description__buttons">
-      <base-button>
+      <base-button @click="$router.push('#contact')">
         {{ $t('hero.contact_us') }}
       </base-button>
       <span class="hero-description__button-divider">
         {{ $t('hero.or') }}
       </span>
-      <base-button outline text-white>
+      <base-button outline text-white  @click="$router.push('#portfolio')">
         {{ $t('hero.check_our_portfolio') }}
       </base-button>
     </div>

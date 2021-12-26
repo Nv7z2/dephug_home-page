@@ -7,6 +7,7 @@
     class="base-button"
     :disabled="disabled"
     type="button"
+    @click="$emit('click')"
   >
     <slot></slot>
   </button>

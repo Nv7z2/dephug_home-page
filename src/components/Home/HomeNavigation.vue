@@ -59,10 +59,16 @@
             </a>
           </li>
         </ul>
-        <base-button outline @click="isMenuActive = false">
+        <base-button
+          outline
+          @click="
+            isMenuActive = false;
+            $router.push('/create-your-project');
+          "
+        >
           {{ $t('navigation.create_your_project') }}
         </base-button>
-        <base-button @click="isMenuActive = false">
+        <base-button @click="isMenuActive = false" disabled>
           {{ $t('navigation.sign_in') }}
         </base-button>
 
