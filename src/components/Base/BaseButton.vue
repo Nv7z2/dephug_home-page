@@ -5,6 +5,7 @@
       'base-button--text-white': textWhite,
     }"
     class="base-button"
+    :disabled="disabled"
   >
     <slot></slot>
   </button>
@@ -23,6 +24,11 @@ export default {
       required: false,
       default: false,
     },
+    disabled: {
+      type: Boolean,
+      required: false,
+      default: false,
+    }
   },
 };
 </script>
@@ -45,6 +51,11 @@ export default {
 
   &--text-white {
     color: $text-light;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    background-color: rgba($primary, 0.75);
   }
 }
 </style>
