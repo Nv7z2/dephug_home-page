@@ -1,0 +1,71 @@
+<template>
+  <section class="hero-section">
+    <h2 class="hero-section__main-heading">
+      {{ $t('hero.main_heading') }}
+      <span class="color-primary">{{ $t('hero.main_heading_idea') }}.</span>
+    </h2>
+    <h4 class="hero-section__small-heading">{{ $t('hero.small_heading') }}.</h4>
+
+    <home-hero-description />
+  </section>
+</template>
+
+<script>
+import HomeHeroDescription from './HomeHeroDescription.vue';
+
+export default {
+  components: {
+    HomeHeroDescription,
+  },
+  mounted() {
+    const heroSection = document.querySelector('.hero-section');
+
+    window.addEventListener('scroll', () => {
+      heroSection.style.backgroundPositionY = `${window.scrollY / 3}px`;
+    });
+  },
+};
+</script>
+
+<style lang="scss" scoped>
+.color-primary {
+  color: $primary;
+}
+
+.hero-section {
+  margin-top: 4rem;
+  padding: 2rem 3rem;
+  border-radius: 1.5rem;
+  background: url('~@/assets/hero_img.webp');
+  background-size: cover;
+  background-position-x: center;
+  box-shadow: 0 2rem 3rem -2rem rgba($primary, 0.75);
+
+  @include mq {
+    margin-top: 2rem;
+    padding: 0.5rem 1rem;
+  }
+
+  &__main-heading {
+    color: #fff;
+    font-size: 60px;
+    margin: 0 0 1rem 0;
+    text-shadow: 0 2px 2px #00000030;
+
+    @include mq {
+      font-size: 30px;
+    }
+  }
+
+  &__small-heading {
+    margin: 0;
+    color: #fff;
+    font-size: 1.75rem;
+    text-shadow: 0 2px 2px #00000030;
+
+    @include mq {
+      font-size: 1.25rem;
+    }
+  }
+}
+</style>

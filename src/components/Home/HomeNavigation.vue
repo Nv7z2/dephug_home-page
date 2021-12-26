@@ -65,6 +65,11 @@
         <base-button @click="isMenuActive = false">
           {{ $t('navigation.sign_in') }}
         </base-button>
+
+        <!-- <div class="home-navigation__languages">
+          <img src="https://img.icons8.com/color/24/000000/poland-circular.png"/>
+          <img src="https://img.icons8.com/color/24/000000/usa-circular.png"/>
+        </div> -->
       </div>
     </div>
   </nav>
@@ -94,6 +99,7 @@ export default {
   padding: 1rem 1.5rem;
   background-color: #ffffff75;
   backdrop-filter: blur(6px);
+  z-index: 2;
 
   @include mq {
     padding: 0;
@@ -165,7 +171,7 @@ export default {
     height: 3rem;
     top: 50%;
     left: 2rem;
-    z-index: 2;
+    z-index: 3;
     padding: 1rem;
     background-color: #fff;
     border-radius: 0.5rem;
