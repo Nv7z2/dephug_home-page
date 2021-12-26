@@ -22,16 +22,25 @@ export default {
     const mainHeading = document.querySelector('.hero-section__main-heading');
     const smallHeading = document.querySelector('.hero-section__small-heading');
 
-    window.addEventListener('scroll', () => {
-      heroSection.style.backgroundPositionY = `${window.scrollY / 3}px`;
-      mainHeading.style.top = window.scrollY / 1.5 + 'px';
-      mainHeading.style.opacity = 1 - window.scrollY / 250;
-      smallHeading.style.top = window.scrollY / 1.35 + 'px';
-      smallHeading.style.opacity = 1 - window.scrollY / 250;
-      heroSection.style.opacity = 1 - window.scrollY / 700;
-      document.querySelector('.heroDescription').style.left = window.scrollY / 6 + 'px';
-      document.querySelector('.heroDescription').style.opacity = 1 - window.scrollY / 700;
-    });
+    if (window.innerWidth < 1024) {
+      window.addEventListener('scroll', () => {
+        heroSection.style.backgroundPositionY = `${window.scrollY / 3}px`;
+        heroSection.style.opacity = 1 - window.scrollY / 700;
+      });
+    } else {
+      window.addEventListener('scroll', () => {
+        heroSection.style.backgroundPositionY = `${window.scrollY / 3}px`;
+        mainHeading.style.top = window.scrollY / 1.5 + 'px';
+        mainHeading.style.opacity = 1 - window.scrollY / 350;
+        smallHeading.style.top = window.scrollY / 1.35 + 'px';
+        smallHeading.style.opacity = 1 - window.scrollY / 350;
+        heroSection.style.opacity = 1 - window.scrollY / 700;
+        document.querySelector('.heroDescription').style.bottom =
+          -window.scrollY / 2.5 + 'px';
+        document.querySelector('.heroDescription').style.opacity =
+          1 - window.scrollY / 700;
+      });
+    }
   },
 };
 </script>
@@ -65,6 +74,7 @@ export default {
 
     @include mq {
       font-size: 30px;
+      text-align: center;
     }
   }
 
@@ -77,6 +87,7 @@ export default {
 
     @include mq {
       font-size: 1.25rem;
+      text-align: center;
     }
   }
 }
