@@ -1,9 +1,9 @@
 <template>
-  <section class="how-we-work" id="how-we-work">
-    <h2 class="how-we-work__heading">
-      {{ $t('how_we_work.heading') }}
-    </h2>
-
+  <base-home-section
+    sectionClass="how-we-work"
+    sectionId="how-we-work"
+    headingString="how_we_work.heading"
+  >
     <div class="how-we-work__steps">
       <div class="how-we-work__step">
         <span>
@@ -82,14 +82,13 @@
       <base-button>
         {{ $t('how_we_work.create_your_project') }}
       </base-button>
-    </div>
-  </section>
+    </div></base-home-section
+  >
 </template>
 
 <script>
 export default {
   mounted() {
-    const sectionNode = document.querySelector('.how-we-work');
     const dividerDotWrapper = document.querySelector(
       '.how-we-work__divider-dot-wrapper'
     );
@@ -103,20 +102,12 @@ export default {
     calculateDividerLineWidth();
 
     window.addEventListener('resize', calculateDividerLineWidth);
-
-    window.addEventListener('scroll', () => {
-      let distanceFromTop = sectionNode.getBoundingClientRect().top;
-      let opacityBasedOnScroll = -(distanceFromTop - window.innerHeight) / 750;
-
-      sectionNode.style.opacity = opacityBasedOnScroll > 1 ? 1 : opacityBasedOnScroll;
-    });
   },
 };
 </script>
 
 <style lang="scss" scoped>
 .how-we-work {
-  margin-top: 8rem;
   position: relative;
 
   .mobile-only {
@@ -140,12 +131,6 @@ export default {
       border-radius: 0.5rem;
       background-color: $primary;
     }
-  }
-
-  &__heading {
-    font-weight: lighter;
-    font-size: 2.25rem;
-    margin: 0 0 4.5rem 0;
   }
 
   &__steps,

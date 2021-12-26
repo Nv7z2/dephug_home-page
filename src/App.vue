@@ -10,7 +10,6 @@
 #app {
   padding: 16px 32px;
   background-color: $surface;
-  height: 200vh;
 
   @include mq {
     padding: 8px 16px;

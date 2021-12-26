@@ -39,5 +39,8 @@ export default {
   },
   portfolio: {
     heading: 'Portfolio',
+  },
+  about_us: {
+    heading: 'About us',
   }
 };
