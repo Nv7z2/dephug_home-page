@@ -17,4 +17,23 @@ export default {
     or: 'or',
     check_our_portfolio: 'Check our portfolio',
   },
+  how_we_work: {
+    heading: 'How we work',
+    step1: 'Step 1',
+    consulting: 'Consulting',
+    step2: 'Step 2',
+    planning: 'Planning',
+    step3: 'Step 3',
+    working: 'Working',
+    step4: 'Step 4',
+    implementation: 'Implementation',
+    step_description1:
+      'Laudem et quasi architecto beatae vitae dicta sunt, explicabo nemo enim maxime placeat, facere possimus, omnis dolor sit extremum et ultimum bonorum.',
+    step_description2:
+      'Laudem et quasi architecto beatae vitae dicta sunt, explicabo nemo enim maxime placeat, facere possimus, omnis dolor sit extremum et ultimum bonorum.',
+    step_description3:
+      'Laudem et quasi architecto beatae vitae dicta sunt, explicabo nemo enim maxime placeat, facere possimus, omnis dolor sit extremum et ultimum bonorum.',
+    step_description4:
+      'Laudem et quasi architecto beatae vitae dicta sunt, explicabo nemo enim maxime placeat, facere possimus, omnis dolor sit extremum et ultimum bonorum.',
+  },
 };

@@ -31,6 +31,7 @@ export default {};
   border-radius: 1rem;
   margin-top: 35vh;
   max-width: 70%;
+  position: relative;
 
   @include mq {
     padding: 1rem;

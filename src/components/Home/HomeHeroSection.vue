@@ -6,7 +6,7 @@
     </h2>
     <h4 class="hero-section__small-heading">{{ $t('hero.small_heading') }}.</h4>
 
-    <home-hero-description />
+    <home-hero-description class="heroDescription" />
   </section>
 </template>
 
@@ -19,9 +19,18 @@ export default {
   },
   mounted() {
     const heroSection = document.querySelector('.hero-section');
+    const mainHeading = document.querySelector('.hero-section__main-heading');
+    const smallHeading = document.querySelector('.hero-section__small-heading');
 
     window.addEventListener('scroll', () => {
       heroSection.style.backgroundPositionY = `${window.scrollY / 3}px`;
+      mainHeading.style.top = window.scrollY / 1.5 + 'px';
+      mainHeading.style.opacity = 1 - window.scrollY / 250;
+      smallHeading.style.top = window.scrollY / 1.35 + 'px';
+      smallHeading.style.opacity = 1 - window.scrollY / 250;
+      heroSection.style.opacity = 1 - window.scrollY / 700;
+      document.querySelector('.heroDescription').style.left = window.scrollY / 6 + 'px';
+      document.querySelector('.heroDescription').style.opacity = 1 - window.scrollY / 700;
     });
   },
 };
@@ -38,6 +47,7 @@ export default {
   border-radius: 1.5rem;
   background: url('~@/assets/hero_img.webp');
   background-size: cover;
+  overflow: hidden;
   background-position-x: center;
   box-shadow: 0 2rem 3rem -2rem rgba($primary, 0.75);
 
@@ -50,6 +60,7 @@ export default {
     color: #fff;
     font-size: 60px;
     margin: 0 0 1rem 0;
+    position: relative;
     text-shadow: 0 2px 2px #00000030;
 
     @include mq {
@@ -61,6 +72,7 @@ export default {
     margin: 0;
     color: #fff;
     font-size: 1.75rem;
+    position: relative;
     text-shadow: 0 2px 2px #00000030;
 
     @include mq {
