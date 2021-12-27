@@ -68,7 +68,12 @@
         >
           {{ $t('navigation.create_your_project') }}
         </base-button>
-        <base-button @click="isMenuActive = false" disabled>
+        <base-button
+          @click="
+            isMenuActive = false;
+            $router.push('/login');
+          "
+        >
           {{ $t('navigation.sign_in') }}
         </base-button>
 
@@ -97,6 +102,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@keyframes showNav {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 .home-navigation {
   display: flex;
   width: 100%;
@@ -110,6 +124,7 @@ export default {
   background-color: #ffffff75;
   backdrop-filter: blur(6px);
   z-index: 2;
+  animation: showNav 1s ease-in;
 
   @include mq {
     padding: 0;

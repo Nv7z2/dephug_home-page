@@ -79,7 +79,7 @@
     </div>
 
     <div class="how-we-work__button-wrapper">
-      <base-button @click="$router.push('/create-your-project')">
+      <base-button @click="$router.push('/create-your-project')" pulse>
         {{ $t('how_we_work.create_your_project') }}
       </base-button>
     </div></base-home-section
@@ -87,6 +87,8 @@
 </template>
 
 <script>
+import gsap from 'gsap';
+
 export default {
   mounted() {
     const dividerDotWrapper = document.querySelector(
@@ -102,6 +104,23 @@ export default {
     calculateDividerLineWidth();
 
     window.addEventListener('resize', calculateDividerLineWidth);
+
+    gsap
+      .fromTo(
+        '.how-we-work__divider-dot',
+        {
+          scale: 1,
+        },
+        {
+          scale: 1.5,
+          repeat: -1,
+          duration: 0.5,
+          stagger: (index) => {
+            return index * 1;
+          },
+        }
+      )
+      .play();
   },
 };
 </script>
@@ -226,6 +245,7 @@ export default {
     button {
       width: 20rem;
       max-width: 320px;
+      margin-bottom: 1rem;
 
       @include mq {
         width: 85%;

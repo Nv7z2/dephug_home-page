@@ -53,6 +53,13 @@ export default {
       subject: 'Subject',
       message: 'Message',
       button_label: 'Send',
-    }
+    },
+  },
+  login: {
+    heading: 'Dephug login',
+    login: 'Login',
+    password: 'Password',
+    button: 'Sign in',
+    go_back: 'Go back to homepage',
   },
 };

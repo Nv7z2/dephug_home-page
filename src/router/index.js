@@ -18,6 +18,11 @@ const routes = [
     name: 'Create your project',
     component: () => import('../views/Home/ProjectCreator.vue'),
   },
+  {
+    path: '/login',
+    name: 'Login',
+    component: () => import('../views/Login.vue'),
+  },
 ];
 
 const router = new VueRouter({

@@ -3,6 +3,7 @@
     :class="{
       'base-button--outline': outline,
       'base-button--text-white': textWhite,
+      'base-button--pulse': pulse,
     }"
     class="base-button"
     :disabled="disabled"
@@ -30,12 +31,30 @@ export default {
       type: Boolean,
       required: false,
       default: false,
-    }
+    },
+    pulse: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   },
 };
 </script>
 
 <style lang="scss" scoped>
+@keyframes pulseButton {
+  from {
+    box-shadow: 0 0 0 0 rgba(#000, 0);
+  }
+  25% {
+    transform: scale(0.97);
+    box-shadow: 0 0 0 0.5rem rgba($primary, 0.25);
+  }
+  to {
+    box-shadow: 0 0 0 1rem rgba(#000, 0);
+  }
+}
+
 .base-button {
   font-size: 1rem;
   padding: 0.5rem 1.5rem;
@@ -53,6 +72,10 @@ export default {
 
   &--text-white {
     color: $text-light;
+  }
+
+  &--pulse {
+    animation: pulseButton 1.5s infinite;
   }
 
   &:disabled {
