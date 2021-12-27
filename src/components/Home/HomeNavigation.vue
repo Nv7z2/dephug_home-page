@@ -72,6 +72,10 @@
           {{ $t('navigation.sign_in') }}
         </base-button>
 
+        <div class="mobile-only">
+          <a href="mailto:contact@dephug.com">contact@dephug.com</a>
+        </div>
+
         <!-- <div class="home-navigation__languages">
           <img src="https://img.icons8.com/color/24/000000/poland-circular.png"/>
           <img src="https://img.icons8.com/color/24/000000/usa-circular.png"/>
@@ -113,6 +117,20 @@ export default {
 
     &--active {
       height: 100vh;
+    }
+  }
+
+  .mobile-only {
+    display: none;
+
+    @include mq {
+      display: block;
+      margin-top: 2rem;
+
+      a {
+        text-decoration: none;
+        color: $primary;
+      }
     }
   }
 
