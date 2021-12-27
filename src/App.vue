@@ -11,6 +11,7 @@
 
 #app {
   padding: 16px 32px;
+  overflow: hidden;
   background-color: $surface;
 
   @include mq {

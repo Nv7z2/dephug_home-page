@@ -6,6 +6,10 @@
   >
     <div class="portfolio__projects-wrapper">
       <home-portfolio-project name="Example project" link="#" />
+      <home-portfolio-project name="Example project" link="#" />
+      <home-portfolio-project name="Example project" link="#" />
+      <home-portfolio-project name="Example project" link="#" />
+      <home-portfolio-project name="Example project" link="#" />
     </div>
   </base-home-section>
 </template>
@@ -24,6 +28,7 @@ export default {
 .portfolio {
   &__projects-wrapper {
     display: grid;
+    grid-gap: 3rem;
     grid-template-columns: 1fr 1fr;
 
     @include mq {

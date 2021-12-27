@@ -140,6 +140,14 @@ export default {
       };
     },
   },
+  mounted() {
+    const poster = document.querySelector('.contact__poster');
+
+    window.addEventListener('scroll', () => {
+      poster.style.backgroundPositionY =
+        -poster.getBoundingClientRect().y / 3 + 'px';
+    });
+  },
 };
 </script>
 
@@ -166,7 +174,7 @@ export default {
     flex-direction: column;
     justify-content: flex-end;
     box-shadow: 0 0.5rem 1rem -0.5rem rgba($primary, 0.3);
-    background: url('~@/assets/contact_poster.webp') center / cover;
+    background: url('~@/assets/contact_poster.webp') center / 125%;
   }
 
   &__poster-content {
@@ -178,7 +186,7 @@ export default {
     border-radius: 0.5rem;
 
     a {
-      color: #FFFBF7;
+      color: #fffbf7;
       font-weight: bold;
       text-decoration: none;
     }

@@ -26,13 +26,37 @@ export default {
   },
   mounted() {
     const sectionNode = document.querySelector(`.${this.sectionClass}`);
+    const sectionHeading = document.querySelectorAll('.section__heading');
+    // const allSections = document.querySelectorAll('.section');
 
     window.addEventListener('scroll', () => {
       let distanceFromTop = sectionNode.getBoundingClientRect().top;
       let opacityBasedOnScroll = -(distanceFromTop - window.innerHeight) / 750;
+      const opacityBack =
+        1.05 -
+        (window.innerHeight - sectionNode.getBoundingClientRect().bottom) / 600;
 
-      sectionNode.style.opacity =
-        opacityBasedOnScroll > 1 ? 1 : opacityBasedOnScroll;
+      if (
+        window.innerHeight - sectionNode.getBoundingClientRect().bottom >
+        window.innerHeight / 2
+      ) {
+        sectionNode.style.opacity = opacityBack < 0 ? 0 : opacityBack;
+      } else {
+        sectionNode.style.opacity =
+          opacityBasedOnScroll > 1 ? 1 : opacityBasedOnScroll;
+      }
+
+      console.log(
+        1 -
+          (window.innerHeight -
+            document.querySelector('.portfolio').getBoundingClientRect()
+              .bottom) /
+            650
+      );
+
+      sectionHeading.forEach((heading) => {
+        heading.style.left = heading.getBoundingClientRect().y / 6 + 'px';
+      });
     });
   },
 };
@@ -40,7 +64,10 @@ export default {
 
 <style lang="scss" scoped>
 .section {
-  margin-top: 8rem;
+  margin-top: 12rem;
+  position: relative;
+  overflow: hidden;
+  transition: opacity 0.15s;
 
   @include mq {
     margin-top: 6rem;
@@ -51,6 +78,7 @@ export default {
     font-size: 2.25rem;
     margin: 0 0 4.5rem 0;
     color: $text-dark;
+    position: relative;
 
     @include mq {
       margin: 0 0 2rem 0;
