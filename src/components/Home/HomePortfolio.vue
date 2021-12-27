@@ -29,7 +29,7 @@ export default {
   &__projects-wrapper {
     display: grid;
     grid-gap: 3rem;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
 
     @include mq {
       grid-template-columns: 1fr;

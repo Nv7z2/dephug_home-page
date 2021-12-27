@@ -28,7 +28,7 @@ export default {
 <style lang="scss" scoped>
 .portfolio {
   &__project-box {
-    height: 26rem;
+    height: 16rem;
     display: flex;
     border-radius: 0.5rem;
     flex-direction: column;
