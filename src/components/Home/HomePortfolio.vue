@@ -4,6 +4,9 @@
     sectionId="portfolio"
     headingString="portfolio.heading"
   >
+    <p class="portfolio__description">
+      {{ $t('portfolio.description') }}
+    </p>
     <div class="portfolio__projects-wrapper">
       <home-portfolio-project name="Example project" link="#" />
       <home-portfolio-project name="Example project" link="#" />

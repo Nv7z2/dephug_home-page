@@ -1,7 +1,7 @@
 <template>
   <div class="hero-description">
     <div class="hero-description__text-content">
-      {{ $t('hero.description') }}
+      <span>{{ $t('hero.description') }}</span>
     </div>
     <div class="hero-description__buttons">
       <base-button @click="$router.push('#contact')" pulse>
@@ -10,7 +10,7 @@
       <span class="hero-description__button-divider">
         {{ $t('hero.or') }}
       </span>
-      <base-button outline text-white  @click="$router.push('#portfolio')">
+      <base-button outline text-white @click="$router.push('#portfolio')">
         {{ $t('hero.check_our_portfolio') }}
       </base-button>
     </div>
@@ -41,6 +41,10 @@ export default {};
 
   &__text-content {
     margin-bottom: 2rem;
+
+    & span {
+      color: $text-light;
+    }
   }
 
   &__buttons {

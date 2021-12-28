@@ -50,6 +50,15 @@ export default {
   color: $primary;
 }
 
+@keyframes appearSection {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 .hero-section {
   margin-top: 4rem;
   padding: 2rem 3rem;
@@ -59,6 +68,7 @@ export default {
   overflow: hidden;
   background-position-x: center;
   box-shadow: 0 2rem 3rem -2rem rgba($primary, 0.75);
+  animation: appearSection 1s ease;
 
   @include mq {
     margin-top: 2rem;
