@@ -61,7 +61,10 @@ export default {
       subject: 'Subject',
       message: 'Message',
       button_label: 'Send',
+      button_label_sending: 'Sending message...',
     },
+    message_send: 'Your message has been sent :)',
+    message_not_send: 'Your message lost its way and did not arrive :(',
   },
   login: {
     heading: 'Dephug login',

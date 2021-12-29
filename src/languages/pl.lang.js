@@ -61,7 +61,10 @@ export default {
       subject: 'Temat wiadomości',
       message: 'Wiadomość',
       button_label: 'Wyślij',
+      button_label_sending: 'Wysyłanie wiadomości...',
     },
+    message_send: 'Your message has been sent :)',
+    message_not_send: 'Your message lost its way and did not arrive :(',
   },
   login: {
     heading: 'Dephug login',

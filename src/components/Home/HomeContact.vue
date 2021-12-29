@@ -11,13 +11,26 @@
         </div>
       </div>
 
-      <form action="" class="contact__form">
+      <form ref="contactform" class="contact__form">
         <h3 class="contact__form-heading">
           {{ $t('contact.lets_make_a_deal') }}
         </h3>
         <h4 class="contact__form-small-heading">
           {{ $t('contact.or_collaborate') }}
         </h4>
+
+        <transition name="fade">
+          <p
+            class="contact__send-result"
+            :class="{
+              'contact__send-result--success': isFormSentSuccessfully,
+              'contact__send-result--fail': !isFormSentSuccessfully,
+            }"
+            v-if="isFormSendingDone"
+          >
+            {{ $t(send_res_text) }}
+          </p>
+        </transition>
 
         <label for="" class="contact__field">
           <span class="contact__field-label">
@@ -28,7 +41,9 @@
             name="name"
             class="contact__field-input"
             v-model="form.name"
+            @keypress="validateInput"
             @change="validateInput"
+            :disabled="isSending"
           />
         </label>
         <label for="" class="contact__field">
@@ -40,7 +55,9 @@
             name="email"
             class="contact__field-input"
             v-model="form.email"
+            @keypress="validateInput"
             @change="validateInput"
+            :disabled="isSending"
           />
         </label>
         <label for="" class="contact__field">
@@ -52,7 +69,9 @@
             name="subject"
             class="contact__field-input"
             v-model="form.subject"
+            @keypress="validateInput"
             @change="validateInput"
+            :disabled="isSending"
           />
         </label>
         <label for="" class="contact__field">
@@ -64,12 +83,22 @@
             rows="6"
             name="message"
             v-model="form.message"
-            @change="validateInput"
+            :disabled="isSending"
+            @keydown="validateInputMessage"
+            @change="validateInputMessage"
+            @keypress.enter="sendEmail"
           ></textarea>
         </label>
 
-        <base-button class="contact__button" :disabled="!isFormValid">
-          {{ $t('contact.form.button_label') }}
+        <base-button
+          class="contact__button"
+          :disabled="!isFormValid || isSending"
+          @click="sendEmail"
+        >
+          <transition name="fade" mode="out-in">
+            <span v-if="!isSending">{{ $t('contact.form.button_label') }}</span>
+            <span v-else>{{ $t('contact.form.button_label_sending') }}</span>
+          </transition>
         </base-button>
       </form>
     </div>
@@ -77,6 +106,8 @@
 </template>
 
 <script>
+import emailjs from 'emailjs-com';
+
 export default {
   data() {
     return {
@@ -87,6 +118,10 @@ export default {
         message: '',
       },
       isFormValid: false,
+      isSending: false,
+      send_res_text: '',
+      isFormSendingDone: false,
+      isFormSentSuccessfully: null,
     };
   },
   methods: {
@@ -112,8 +147,10 @@ export default {
       }
 
       Object.entries(this.form).forEach((element) => {
-        if (!this.validators[element[0]].test(element[1].toLowerCase())) {
-          isEntireFormOk = false;
+        if (element[0] != 'message') {
+          if (!this.validators[element[0]].test(element[1].toLowerCase())) {
+            isEntireFormOk = false;
+          }
         }
       });
 
@@ -122,11 +159,68 @@ export default {
         Object.values(this.form).every((value) => !!value)
       ) {
         this.isFormValid = true;
-        console.log('valid');
       } else {
         this.isFormValid = false;
-        console.log('invalid');
       }
+    },
+    validateInputMessage(e) {
+      if (
+        e.target.value.length >= 10 &&
+        this.form.name &&
+        this.form.email &&
+        this.form.subject
+      )
+        this.isFormValid = true;
+      if (e.target.value.length < 10) this.isFormValid = false;
+    },
+    clearFormValuesWhenDone() {
+      this.form.name = '';
+      this.form.email = '';
+      this.form.subject = '';
+      this.form.message = '';
+
+      document.querySelectorAll('.contact__field').forEach((formField) => {
+        formField.classList.remove('contact__field--valid');
+        formField.classList.remove('contact__field--invalid');
+      });
+    },
+    clearFormDataWhenDone() {
+      this.send_res_text = '';
+      this.isFormSendingDone = false;
+      this.isFormSentSuccessfully = null;
+    },
+    sendEmail() {
+      this.isSending = true;
+      if (this.isFormValid == false) return;
+
+      emailjs
+        .send('service_0pwjdfk', 'template_seomx6h', {
+          name: this.form.name,
+          email: this.form.email,
+          subject: this.form.subject,
+          message: this.form.message,
+        })
+        .then(() => {
+          this.isSending = false;
+          this.isFormSendingDone = true;
+          this.isFormSentSuccessfully = true;
+          this.send_res_text = 'contact.message_send';
+          this.clearFormValuesWhenDone();
+
+          setTimeout(() => {
+            this.clearFormDataWhenDone();
+          }, 5000);
+        })
+        .catch(() => {
+          this.isSending = false;
+          this.isFormSendingDone = true;
+          this.isFormSentSuccessfully = false;
+          this.send_res_text = 'contact.message_not_send';
+
+          setTimeout(() => {
+            this.clearFormDataWhenDone();
+          }, 5000);
+        });
     },
   },
   computed: {
@@ -136,7 +230,6 @@ export default {
         email:
           /^([a-z0-9]+(?:[._-][a-z0-9]+)*)@([a-z0-9]+(?:[.-][a-z0-9]+)*\.[a-z]{2,})$/,
         subject: /\w{3,}/,
-        message: /[\w\s,.\d]{10,}/,
       };
     },
   },
@@ -152,6 +245,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
 .contact {
   &__content {
     display: flex;
@@ -258,6 +358,15 @@ export default {
       width: 100%;
       margin: 0;
       max-width: unset;
+    }
+  }
+
+  &__send-result {
+    &--success {
+      color: rgb(84, 177, 84);
+    }
+    &--fail {
+      color: rgb(221, 72, 72);
     }
   }
 }

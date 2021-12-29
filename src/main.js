@@ -4,6 +4,7 @@ import router from './router';
 import store from './store';
 import i18n from './languages';
 import './registerGlobalComponents';
+import './email';
 
 Vue.config.productionTip = true;
 
