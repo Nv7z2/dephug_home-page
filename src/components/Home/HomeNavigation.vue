@@ -3,7 +3,7 @@
     class="home-navigation"
     :class="{ 'home-navigation--active': isMenuActive }"
   >
-    <div class="home-navigation__logo" @click="isMenuActive = true">
+    <div class="home-navigation__logo">
       <h2>Dephug</h2>
     </div>
 
@@ -59,12 +59,32 @@
             </a>
           </li>
         </ul>
-        <base-button outline @click="isMenuActive = false">
+        <base-button
+          outline
+          @click="
+            isMenuActive = false;
+            $router.push('/create-your-project');
+          "
+        >
           {{ $t('navigation.create_your_project') }}
         </base-button>
-        <base-button @click="isMenuActive = false">
+        <base-button
+          @click="
+            isMenuActive = false;
+            $router.push('/login');
+          "
+        >
           {{ $t('navigation.sign_in') }}
         </base-button>
+
+        <div class="mobile-only">
+          <a href="mailto:contact@dephug.com">contact@dephug.com</a>
+        </div>
+
+        <!-- <div class="home-navigation__languages">
+          <img src="https://img.icons8.com/color/24/000000/poland-circular.png"/>
+          <img src="https://img.icons8.com/color/24/000000/usa-circular.png"/>
+        </div> -->
       </div>
     </div>
   </nav>
@@ -82,15 +102,51 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@keyframes showNav {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 .home-navigation {
   display: flex;
   width: 100%;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem 1.5rem;
+  background-color: #ffffff75;
+  backdrop-filter: blur(6px);
+  z-index: 2;
+  animation: showNav 1s ease-in;
 
   @include mq {
     padding: 0;
+    background-color: transparent;
+
+    &--active {
+      height: 100vh;
+    }
+  }
+
+  .mobile-only {
+    display: none;
+
+    @include mq {
+      display: block;
+      margin-top: 2rem;
+
+      a {
+        text-decoration: none;
+        color: $primary;
+      }
+    }
   }
 
   &__logo {
@@ -103,8 +159,14 @@ export default {
       width: 100%;
       padding: 0.5rem 0;
       text-align: center;
-      background-color: #ffffff40;
-      backdrop-filter: blur(8px);
+      background-color: #ffffff50;
+      backdrop-filter: blur(6px);
+    }
+  }
+
+  &--active &__logo {
+    @include mq {
+      background-color: transparent;
     }
   }
 
@@ -148,7 +210,7 @@ export default {
     height: 3rem;
     top: 50%;
     left: 2rem;
-    z-index: 2;
+    z-index: 3;
     padding: 1rem;
     background-color: #fff;
     border-radius: 0.5rem;
@@ -180,7 +242,7 @@ export default {
       top: 0;
       left: 0;
       width: 100%;
-      height: 100%;
+      height: 100vh;
       background-color: #00000015;
       backdrop-filter: blur(4px);
     }
