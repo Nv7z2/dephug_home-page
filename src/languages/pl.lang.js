@@ -49,7 +49,7 @@ export default {
     paragraph2:
       "Zdecydowanie preferujemy rozwiązania oparte na naszym doświadczeniu i dotychczasowych dokonań (np. przygotowane przez nas projekty czy szablony, które błyskawicznie mogą zostać zrealizowane dla naszych klientów), dlatego też raczej stronimy od gotowych rozwiązań pokroju Wordpress'a (jednak na życzenie klienta możemy pójść właśnie tą drogą). Indywidualne podejście do każdego projektu oraz dopięcie wszystkich detali to nasz sposób pracy.",
     paragraph3:
-      'Zajmujemy się tworzeniem projektów z wykorzystaniem najnowszych technologii, zapominająć powoli od rozwiązań uznanych za przedawnione czy w ogóle nie stosowane, dlatego też z czystym sumieniem NIE wspieramy przeglądarki Internet Explorer i podobnych (w ramach ciekawostki - z IE obecnie korzysta mniej niż 0.5% użytkowników na świeciem dlatego też takie drogi nie prowadzą do rozwoju, a jedynie dokładają sporo pracy, która nie zostanie nawet wykorzystana).',
+      'Zajmujemy się tworzeniem projektów z wykorzystaniem najnowszych technologii, zapominająć powoli o rozwiązaniach uznanych za przedawnione czy w ogóle nie stosowane, dlatego też z czystym sumieniem NIE wspieramy przeglądarki Internet Explorer i podobnych (w ramach ciekawostki - z IE obecnie korzysta mniej niż 0.5% użytkowników na świeciem dlatego też takie drogi nie prowadzą do rozwoju, a jedynie dokładają sporo pracy, która nie zostanie nawet wykorzystana).',
   },
   contact: {
     heading: 'Kontakt',
