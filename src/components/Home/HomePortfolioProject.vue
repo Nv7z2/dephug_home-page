@@ -16,6 +16,7 @@
         class="portfolio__project-description-button"
         @mouseenter="isDescriptionVisible = true"
         @mouseleave="isDescriptionVisible = false"
+        @click="isDescriptionVisible = !isDescriptionVisible"
       >
         i
       </button>
