@@ -39,8 +39,16 @@ export default {
   },
   portfolio: {
     heading: 'Portfolio',
-    description:
-      'The newest and most important projects that we had the pleasure to implement.',
+    box_description_1:
+      'Our home page. It is so good that it would be a sin not to add it to your portfolio :) ',
+    box_description_2:
+      'Website with a personalized design for anti-nicotine therapy. Full implementation in cooperation with the TopNow agency. ',
+    box_description_3:
+      'Project with its own template and administration panel connected to the database for restaurants on the outskirts of Warsaw.',
+    box_description_4:
+      'Website for a company that produces personalized saunas. In this case, we mainly dealt with the implementation of e-mail, domain and hosting services.',
+    box_description_5:
+      'A project for a company dealing with all services related to sea containers. The application is based on the Wordpress system, but most of the functionality was written "by hand" from the source code. The project is quite complex, but very important for our portfolio :) ',
   },
   about_us: {
     heading: 'About us',

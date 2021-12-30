@@ -39,8 +39,16 @@ export default {
   },
   portfolio: {
     heading: 'Portfolio',
-    description:
-      'Najnowsze i najważniejsze projekty, które mieliśmy przyjemność realizować.',
+    box_description_1:
+      'Nasza strona główna. Jest na tyle dobra, że grzechem byłoby nie dodać jej do portfolio :)',
+    box_description_2:
+      'Strona internetowa z indywidualnym projektem dla terapii anty-nikotynowej. Pełne wdrożenie we współpracy z agencją TopNow.',
+    box_description_3:
+      'Projekt z własnym szablonem oraz panelem administracyjnym połączonym z bazą danych dla restauracji na obrzeżach Warszawy.',
+    box_description_4:
+      "Strona dla firmy zajmującej się produkowaniem spersonalizowanych saun. W tym przypadku zajmowaliśmy się głównie wdrażaniem usług typu e-mail'e, domena oraz hosting.",
+    box_description_5:
+      'Projekt dla firmy zajmującej się wszelkimi usługami związanymi z kontenerami morskimi. Aplikacja opiera się na systemie Wordpress, niemniej jednak większość funkcjonalności została przez nas napisana "ręcznie" z poziomu kodu źródłowego. Projekt dość złożony, jednak bardzo ważny dla naszego portfolio :)',
   },
   about_us: {
     heading: 'O nas',

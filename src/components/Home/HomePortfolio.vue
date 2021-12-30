@@ -4,33 +4,36 @@
     sectionId="portfolio"
     headingString="portfolio.heading"
   >
-    <p class="portfolio__description">
-      {{ $t('portfolio.description') }}
-    </p>
     <div class="portfolio__projects-wrapper">
+      <home-portfolio-project
+        name="Dephug home page"
+        link="#"
+        imagePath="dephug.jpeg"
+        description="box_description_1"
+      />
       <home-portfolio-project
         name="Trening ITA"
         link="https://treningita.pl"
         imagePath="portfolio_treningita.jpeg"
-        description="portfolio_description_1"
+        description="box_description_2"
       />
       <home-portfolio-project
         name="Restauracja Jadalnia"
         link="https://jadalnia.patriotow303.pl"
         imagePath="portfolio_jadalnia.jpeg"
-        description="test"
+        description="box_description_3"
       />
       <home-portfolio-project
         name="Natursauna"
         link="https://natursauna.pl"
         imagePath="natursauna.jpeg"
-        description="test"
+        description="box_description_4"
       />
       <home-portfolio-project
         name="Seecontainers"
         link="https://seecontainers.pl"
         imagePath="seecontainers.jpeg"
-        description="test"
+        description="box_description_5"
       />
     </div>
   </base-home-section>

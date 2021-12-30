@@ -26,7 +26,7 @@
             isDescriptionVisible,
         }"
       >
-        {{ description }}
+        {{ $t('portfolio.' + description) }}
       </div>
     </div>
   </div>
@@ -68,8 +68,8 @@ export default {
     display: flex;
     position: relative;
     border-radius: 0.5rem;
-    flex-direction: column;
-    justify-content: flex-end;
+    flex-direction: column-reverse;
+    justify-content: space-between;
     box-shadow: 0 0.5rem 2rem -0.5rem rgba($primary, 0.6);
     background: url('~@/assets/project.jpeg') center / cover;
 
@@ -102,10 +102,8 @@ export default {
   }
 
   &__project-description-wrapper {
-    position: absolute;
-    top: 0.25rem;
-    right: 0.25rem;
     display: flex;
+    padding: 0.5rem;
     flex-direction: column;
     align-items: flex-end;
   }
@@ -128,11 +126,11 @@ export default {
     color: $text-light;
     border-radius: 0.25rem;
     backdrop-filter: blur(6px);
-    background-color: #00000060;
+    background-color: #00000090;
     transition: all 0.4s ease-in-out;
 
     &--visible {
-      max-height: 10rem;
+      max-height: 12rem;
       padding: 0.5rem 0.75rem;
     }
   }
