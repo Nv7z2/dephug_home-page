@@ -8,11 +8,30 @@
       {{ $t('portfolio.description') }}
     </p>
     <div class="portfolio__projects-wrapper">
-      <home-portfolio-project name="Example project" link="#" />
-      <home-portfolio-project name="Example project" link="#" />
-      <home-portfolio-project name="Example project" link="#" />
-      <home-portfolio-project name="Example project" link="#" />
-      <home-portfolio-project name="Example project" link="#" />
+      <home-portfolio-project
+        name="Trening ITA"
+        link="https://treningita.pl"
+        imagePath="portfolio_treningita.jpeg"
+        description="portfolio_description_1"
+      />
+      <home-portfolio-project
+        name="Restauracja Jadalnia"
+        link="https://jadalnia.patriotow303.pl"
+        imagePath="portfolio_jadalnia.jpeg"
+        description="test"
+      />
+      <home-portfolio-project
+        name="Natursauna"
+        link="https://natursauna.pl"
+        imagePath="natursauna.jpeg"
+        description="test"
+      />
+      <home-portfolio-project
+        name="Seecontainers"
+        link="https://seecontainers.pl"
+        imagePath="seecontainers.jpeg"
+        description="test"
+      />
     </div>
   </base-home-section>
 </template>

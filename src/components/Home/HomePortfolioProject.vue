@@ -1,11 +1,34 @@
 <template>
-  <div class="portfolio__project-box">
-    <a :href="link" class="portfolio__project-label">
+  <div
+    class="portfolio__project-box"
+    :style="`background: url(${require('@/assets/' +
+      imagePath)}) center / cover;`"
+  >
+    <a :href="link" class="portfolio__project-label" target="_blank">
       <span class="portfolio__project-icon">
         <img src="../../assets/anchor-icon.svg" alt="" />
       </span>
       <span class="portfolio__project-name">{{ name }}</span>
     </a>
+
+    <div class="portfolio__project-description-wrapper">
+      <button
+        class="portfolio__project-description-button"
+        @mouseenter="isDescriptionVisible = true"
+        @mouseleave="isDescriptionVisible = false"
+      >
+        &#8505;
+      </button>
+      <div
+        class="portfolio__project-description-content"
+        :class="{
+          'portfolio__project-description-content--visible':
+            isDescriptionVisible,
+        }"
+      >
+        {{ description }}
+      </div>
+    </div>
   </div>
 </template>
 
@@ -21,6 +44,19 @@ export default {
       required: false,
       default: '#',
     },
+    imagePath: {
+      type: String,
+      required: true,
+    },
+    description: {
+      type: String,
+      required: true,
+    },
+  },
+  data() {
+    return {
+      isDescriptionVisible: false,
+    };
   },
 };
 </script>
@@ -28,8 +64,9 @@ export default {
 <style lang="scss" scoped>
 .portfolio {
   &__project-box {
-    height: 16rem;
+    height: 280px;
     display: flex;
+    position: relative;
     border-radius: 0.5rem;
     flex-direction: column;
     justify-content: flex-end;
@@ -62,6 +99,42 @@ export default {
   &__project-name {
     font-weight: bold;
     color: $text-light;
+  }
+
+  &__project-description-wrapper {
+    position: absolute;
+    top: 0.25rem;
+    right: 0.25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  &__project-description-button {
+    border: none;
+    width: 1.5rem;
+    height: 1.5rem;
+    color: $text-light;
+    border-radius: 50%;
+    backdrop-filter: blur(6px);
+    background-color: #00000060;
+    box-shadow: 0 0.25rem 0.5rem 0 rgba(#000, 0.25);
+  }
+  &__project-description-content {
+    width: calc(100% - 1rem);
+    padding: 0;
+    max-height: 0;
+    margin-top: 0.5rem;
+    overflow-y: hidden;
+    color: $text-light;
+    border-radius: 0.25rem;
+    backdrop-filter: blur(6px);
+    background-color: #00000060;
+    transition: all 0.4s ease-in-out;
+
+    &--visible {
+      max-height: 10rem;
+      padding: 0.5rem 0.75rem;
+    }
   }
 }
 </style>
