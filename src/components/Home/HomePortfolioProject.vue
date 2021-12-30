@@ -17,7 +17,7 @@
         @mouseenter="isDescriptionVisible = true"
         @mouseleave="isDescriptionVisible = false"
       >
-        &#8505;
+        i
       </button>
       <div
         class="portfolio__project-description-content"
@@ -132,6 +132,11 @@ export default {
     &--visible {
       max-height: 12rem;
       padding: 0.5rem 0.75rem;
+
+      @include mq {
+        max-height: 7rem;
+        overflow-y: scroll;
+      }
     }
   }
 }
