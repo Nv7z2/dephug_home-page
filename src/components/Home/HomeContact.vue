@@ -192,6 +192,11 @@ export default {
     sendEmail() {
       this.isSending = true;
       if (this.isFormValid == false) return;
+      let reflink;
+      const localState = JSON.parse(window.sessionStorage.getItem('state'));
+
+      if (localState && localState.reflink) reflink = localState.reflink;
+      else reflink = 'Brak reflinku :(';
 
       emailjs
         .send('service_0pwjdfk', 'template_seomx6h', {
@@ -199,6 +204,7 @@ export default {
           email: this.form.email,
           subject: this.form.subject,
           message: this.form.message,
+          reflink: reflink,
         })
         .then(() => {
           this.isSending = false;

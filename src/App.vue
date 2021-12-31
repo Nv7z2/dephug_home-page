@@ -53,6 +53,9 @@ export default {
       ],
     };
   },
+  mounted() {
+    this.$store.dispatch('getReflinkerName');
+  },
 };
 </script>
 
