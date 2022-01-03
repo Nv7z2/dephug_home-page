@@ -29,12 +29,12 @@
         imagePath="natursauna.jpeg"
         description="box_description_4"
       />
-      <home-portfolio-project
+      <!-- <home-portfolio-project
         name="Seecontainers"
         link="https://seecontainers.pl"
         imagePath="seecontainers.jpeg"
         description="box_description_5"
-      />
+      /> -->
     </div>
   </base-home-section>
 </template>
