@@ -79,7 +79,7 @@
     </div>
 
     <div class="how-we-work__button-wrapper">
-      <base-button @click="$router.push('/create-your-project')" pulse>
+      <base-button @click="$router.push('/#contact')" pulse>
         {{ $t('how_we_work.create_your_project') }}
       </base-button>
     </div></base-home-section

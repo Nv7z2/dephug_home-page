@@ -63,7 +63,7 @@
           outline
           @click="
             isMenuActive = false;
-            $router.push('/create-your-project');
+            $router.push('#contact');
           "
         >
           {{ $t('navigation.create_your_project') }}
