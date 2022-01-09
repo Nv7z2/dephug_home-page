@@ -11,8 +11,8 @@ export default {
     main_heading: 'Każdy projekt zaczyna się od',
     main_heading_idea: 'pomysłu',
     small_heading: 'Wprowadź swoje pomysły w życie',
-    description: `Jesteśmy małym startup'em specjalizującym się głównie w projektowaniu oraz tworzeniu stron intenretowych, jednak nie ograniczmy się do jednego rynku, więc aplikacje mobilnych czy desktopowe nie są nam obce. 
-      Potrzebujesz strony internetowej? A może potrzebujesz odświeżenia aktualnej szaty graficznej? Zajmiemy się zarówno tym jak i nietypowymi rozwiązaniami!`,
+    description: `Jesteśmy małym startup'em specjalizującym się głównie w projektowaniu oraz tworzeniu stron internetowych, jednak nie ograniczamy się do jednego rynku, więc aplikacje mobilne czy desktopowe nie są nam obce. 
+      Potrzebujesz strony internetowej? A może tylko odświeżenia aktualnej szaty graficznej? Zajmiemy się zarówno tym jak i nietypowymi rozwiązaniami!`,
     contact_us: 'Skontaktuj się z nami',
     or: 'lub',
     check_our_portfolio: 'Zajrzyj do portfolio',
