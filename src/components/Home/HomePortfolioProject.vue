@@ -72,7 +72,7 @@ export default {
     flex-direction: column-reverse;
     justify-content: space-between;
     box-shadow: 0 0.5rem 2rem -0.5rem rgba($primary, 0.6);
-    background: url('~@/assets/project.jpeg') center / cover;
+    background: url('~@/assets/project.webp') center / cover;
 
     @include mq {
       height: 14rem;
