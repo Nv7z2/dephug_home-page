@@ -5,6 +5,8 @@
         <router-view />
       </transition>
     </main>
+
+    <base-cookies />
   </div>
 </template>
 
